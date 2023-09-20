@@ -34,6 +34,16 @@ export const deletePrediction = createAsyncThunk('predictions/deletePrediction',
   }
 });
 
+export const updatePrediction = createAsyncThunk('predictions/updatePrediction', async (predictionData) => {
+  try {
+    const { id, ...updatedData } = predictionData;
+    const response = await axios.put(`http://localhost:3000/predictions/${id}`, updatedData);
+    return response.data;
+  } catch (error) {
+    throw new Error('Failed to update the prediction');
+  }
+});
+
 const predictionsSlice = createSlice({
   name: 'predictions',
   initialState,
@@ -60,6 +70,15 @@ const predictionsSlice = createSlice({
       .addCase(deletePrediction.fulfilled, (state, action) => ({
         ...state,
         predictions: state.predictions.filter((prediction) => prediction.id !== action.payload),
+      }))
+      .addCase(updatePrediction.fulfilled, (state, action) => ({
+        ...state,
+        predictions: state.predictions.map((prediction) => {
+          if (prediction.id === action.payload.id) {
+            return action.payload;
+          }
+          return prediction;
+        }),
       }));
   },
 });
