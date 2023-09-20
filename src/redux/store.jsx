@@ -3,7 +3,7 @@ import predictionsReducer from './slice/predictionsSlice';
 
 const store = configureStore({
   reducer: {
-    prediction: predictionsReducer,
+    predictions: predictionsReducer,
   },
 });
 export default store;
