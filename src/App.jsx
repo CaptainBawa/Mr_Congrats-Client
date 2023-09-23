@@ -9,11 +9,11 @@ import DetailsList from './components/details/DetailsList';
 const App = () => (
   <BrowserRouter>
     <AdvertsList />
-    <DetailsList />
     <PaidCombosList />
     <FreeCombosList />
     <Routes>
       <Route path="/" element={<PredictionsList />} />
+      <Route path="/details/:detailId" element={<DetailsList />} />
     </Routes>
   </BrowserRouter>
 );

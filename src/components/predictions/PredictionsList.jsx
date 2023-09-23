@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPredictions, selectPredictions } from '../../redux/slice/predictionsSlice';
 
@@ -23,6 +24,7 @@ const PredictionsList = () => {
           <h3>{prediction.tip}</h3>
           <h3>{prediction.result}</h3>
           <h3>{prediction.league}</h3>
+          <Link to={`/details/${prediction.id}`}>Head To Head</Link>
         </div>
       ))}
     </div>
