@@ -13,8 +13,9 @@ const PaidCombosList = () => {
   const totalOdds = paidcombos.reduce((total, paidcombo) => total + paidcombo.odd, 0);
 
   return (
-    <div>
-      <table>
+    <div className="table-container">
+      <h2>Paid Combo</h2>
+      <table className="responsive-table">
         <thead>
           <tr>
             <th>Date</th>

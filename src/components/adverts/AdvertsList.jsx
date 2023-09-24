@@ -19,6 +19,8 @@ const AdvertsList = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 9000,
     beforeChange: (current, next) => setCurrentSlide(next),
   };
 
@@ -32,6 +34,8 @@ const AdvertsList = () => {
         slidesToScroll={sliderSettings.slidesToScroll}
         initialSlide={currentSlide}
         beforeChange={sliderSettings.beforeChange}
+        autoplay={sliderSettings.autoplay}
+        autoplaySpeed={sliderSettings.autoplaySpeed}
       >
         {adverts.map((advert) => (
           <div className="adverts-container" key={advert.id}>
