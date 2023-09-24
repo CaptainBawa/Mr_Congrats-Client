@@ -10,7 +10,6 @@ body,
 #root {
   width: 100%;
   height: 100vh;
-  background-color: rgba(238,245,248,255);
+  background-color: rgba(238, 245, 248, 255);
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
-

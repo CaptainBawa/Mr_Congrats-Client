@@ -10,15 +10,79 @@ body,
 #root {
   width: 100%;
   height: 100vh;
-  background-color: rgba(238,245,248,255);
+  background-color: rgba(238, 245, 248, 255);
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-.adverts-container img {
-  width: 50%;
-  height: auto;
+.table-container {
+  margin-right: 1%;
+  margin-left: 1%;
+  margin-bottom: 5%;
 }
 
+.responsive-table {
+  background-color: #141414;
+  border-radius: 1%;
+}
 
+.responsive-table th,
+.responsive-table td {
+  padding: 0.2rem;
+  border: 1px solid #fff;
+  font-size: 0.6rem;
+  color: #fff;
+}
 
+.free-singles-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.free-singles-container h2 {
+  align-self: flex-start;
+  margin-left: 1%;
+}
+
+.free-singles {
+  background-color: #fff;
+  border-radius: 2%;
+  border: 1px solid rgb(173, 163, 163);
+  width: 97%;
+}
+
+.free-teams {
+  display: flex;
+  gap: 1%;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+}
+
+.team img {
+  width: 50%;
+}
+
+.league-tip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.datetime-result {
+  display: flex;
+  gap: 1%;
+}
+
+.datetime-result h3 {
+  background-color: rgba(238, 245, 248, 255);
+  width: 40%;
+  padding: 1%;
+  font-size: 1rem;
+  border-radius: 7%;
+}
