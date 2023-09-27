@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Slider from 'react-slick';
 import { fetchAdverts, selectAdverts } from '../../redux/slice/advertsSlice';
 
 const AdvertsList = () => {
@@ -11,35 +10,46 @@ const AdvertsList = () => {
     dispatch(fetchAdverts());
   }, [dispatch]);
 
-  const sliderSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    centerMode: true,
-    autoplaySpeed: 9000,
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex - 1;
+      return newIndex < 0 ? adverts.length - 1 : newIndex;
+    });
   };
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = prevIndex + 1;
+      return nextIndex >= adverts.length ? 0 : nextIndex;
+    });
+  }, [adverts]);
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 5000);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
 
   return (
     <div className="carousel-container">
-      <Slider
-        dots={sliderSettings.dots}
-        infinite={sliderSettings.infinite}
-        speed={sliderSettings.speed}
-        slidesToShow={sliderSettings.slidesToShow}
-        slidesToScroll={sliderSettings.slidesToScroll}
-        autoplay={sliderSettings.autoplay}
-        centerMode={sliderSettings.centerMode}
-        autoplaySpeed={sliderSettings.autoplaySpeed}
-      >
+      <button type="button" onClick={prevSlide} className="prev-button">
+        &#10094;
+      </button>
+      <button type="button" onClick={nextSlide} className="next-button">
+        &#10095;
+      </button>
+      <div className="slider-content">
         {adverts.map((advert) => (
-          <div className="adverts-container" key={advert.id}>
-            <img src={advert.image} alt="advert" />
-          </div>
+          <img
+            key={advert.id}
+            src={advert.image}
+            alt="advert"
+            className={`slide ${advert.id === adverts[currentIndex].id ? 'active' : ''}`}
+            style={{ display: advert.id === adverts[currentIndex].id ? 'block' : 'none' }}
+          />
         ))}
-      </Slider>
+      </div>
     </div>
   );
 };
