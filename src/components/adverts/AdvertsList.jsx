@@ -14,7 +14,7 @@ const AdvertsList = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const sliderSettings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
