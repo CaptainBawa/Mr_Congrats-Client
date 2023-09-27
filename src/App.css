@@ -15,9 +15,12 @@ body,
 }
 
 .table-container {
-  margin-right: 1%;
-  margin-left: 1%;
-  margin-bottom: 5%;
+  margin: 3% 1% 5% 1%;
+}
+
+.table-container h2,
+.free-singles-container h2 {
+  font-size: 0.8rem;
 }
 
 .responsive-table {
@@ -48,7 +51,7 @@ body,
   background-color: #fff;
   border-radius: 2%;
   border: 1px solid rgb(173, 163, 163);
-  width: 97%;
+  width: 98%;
 }
 
 .free-teams {
