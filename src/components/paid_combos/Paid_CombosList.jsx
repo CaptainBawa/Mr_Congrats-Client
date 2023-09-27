@@ -14,7 +14,7 @@ const PaidCombosList = () => {
 
   return (
     <div className="table-container">
-      <h2>Paid Combo</h2>
+      <h2>VIP Tip. Only subscribed users can see this sure tips</h2>
       <table className="responsive-table">
         <thead>
           <tr>
