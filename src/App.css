@@ -86,3 +86,21 @@ body,
   font-size: 1rem;
   border-radius: 7%;
 }
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.adverts-container,
+.slick-slide {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.adverts-container img {
+  width: 97%;
+  height: auto;
+}
+
