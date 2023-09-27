@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Slider from 'react-slick';
 import { fetchAdverts, selectAdverts } from '../../redux/slice/advertsSlice';
@@ -11,8 +11,6 @@ const AdvertsList = () => {
     dispatch(fetchAdverts());
   }, [dispatch]);
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -20,8 +18,8 @@ const AdvertsList = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
+    centerMode: true,
     autoplaySpeed: 9000,
-    beforeChange: (current, next) => setCurrentSlide(next),
   };
 
   return (
@@ -32,9 +30,8 @@ const AdvertsList = () => {
         speed={sliderSettings.speed}
         slidesToShow={sliderSettings.slidesToShow}
         slidesToScroll={sliderSettings.slidesToScroll}
-        initialSlide={currentSlide}
-        beforeChange={sliderSettings.beforeChange}
         autoplay={sliderSettings.autoplay}
+        centerMode={sliderSettings.centerMode}
         autoplaySpeed={sliderSettings.autoplaySpeed}
       >
         {adverts.map((advert) => (
