@@ -13,8 +13,9 @@ const FreeCombosList = () => {
   const totalOdds = freecombos.reduce((total, freecombo) => total + freecombo.odd, 0);
 
   return (
-    <div>
-      <table>
+    <div className="table-container">
+      <h2>Free Combo</h2>
+      <table className="responsive-table">
         <thead>
           <tr>
             <th>Date</th>
