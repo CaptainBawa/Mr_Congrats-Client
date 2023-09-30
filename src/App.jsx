@@ -6,11 +6,13 @@ import PaidCombosList from './components/paid_combos/Paid_CombosList';
 import AdvertsList from './components/adverts/AdvertsList';
 import DetailsList from './components/details/DetailsList';
 import Navigation from './components/Navigation';
+import Bookies from './components/Bookies';
 
 const App = () => (
   <BrowserRouter>
     <Navigation />
     <AdvertsList />
+    <Bookies />
     <PaidCombosList />
     <FreeCombosList />
     <Routes>
