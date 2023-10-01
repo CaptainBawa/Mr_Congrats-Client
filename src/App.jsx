@@ -16,11 +16,11 @@ const App = () => (
     <Bookies />
     <PaidCombosList />
     <FreeCombosList />
-    <Footer />
     <Routes>
       <Route path="/" element={<PredictionsList />} />
       <Route path="/details/:detailId" element={<DetailsList />} />
     </Routes>
+    <Footer />
   </BrowserRouter>
 );
 
