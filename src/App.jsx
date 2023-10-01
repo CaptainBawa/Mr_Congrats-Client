@@ -7,6 +7,7 @@ import AdvertsList from './components/adverts/AdvertsList';
 import DetailsList from './components/details/DetailsList';
 import Navigation from './components/Navigation';
 import Bookies from './components/Bookies';
+import Footer from './components/footer';
 
 const App = () => (
   <BrowserRouter>
@@ -15,6 +16,7 @@ const App = () => (
     <Bookies />
     <PaidCombosList />
     <FreeCombosList />
+    <Footer />
     <Routes>
       <Route path="/" element={<PredictionsList />} />
       <Route path="/details/:detailId" element={<DetailsList />} />
