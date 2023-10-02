@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Footer = () => (
-  <div>
+  <footer>
     <ul>
       <li>
         <a href="tel:YOUR_PHONE_NUMBER_HERE">
@@ -24,7 +24,7 @@ const Footer = () => (
         </a>
       </li>
     </ul>
-  </div>
+  </footer>
 );
 
 export default Footer;
