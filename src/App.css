@@ -247,3 +247,30 @@ header li a {
 .next-button {
   right: 10px;
 }
+
+footer {
+  width: 97%;
+  height: 13vh;
+  background-color: #000101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 8%;
+  padding: 0 5%;
+}
+
+footer ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer ul li {
+  list-style: none;
+}
+
+footer ul li a i {
+  color: #818081;
+  font-size: 2rem;
+}
