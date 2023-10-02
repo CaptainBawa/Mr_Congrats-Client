@@ -7,7 +7,7 @@ import AdvertsList from './components/adverts/AdvertsList';
 import DetailsList from './components/details/DetailsList';
 import Navigation from './components/Navigation';
 import Bookies from './components/Bookies';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 
 const App = () => (
   <BrowserRouter>
