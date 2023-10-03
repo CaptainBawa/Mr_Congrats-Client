@@ -44,7 +44,7 @@ const PredictionsList = () => {
               {prediction.result}
             </h3>
           </div>
-          <Link to={`/details/${prediction.id}`}>Head To Head</Link>
+          <Link className="h-h" to={`/details/${prediction.id}`}>Head To Head</Link>
         </div>
       ))}
     </div>

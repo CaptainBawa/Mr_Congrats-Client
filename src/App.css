@@ -14,13 +14,132 @@ body,
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+header img {
+  width: 15%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.mobile-nav {
+  width: 100%;
+  display: flex;
+  padding: 2%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-toggle {
+  width: 15%;
+}
+
+nav button {
+  border: none;
+  height: 10vh;
+  background-color: transparent;
+  position: relative;
+  left: 60%;
+  top: 3%;
+  font-size: 2em;
+}
+
+.mobile-toggle button {
+  font-size: 3rem;
+  width: 100%;
+  background-color: #fe4a00;
+  color: #fff;
+  border: none;
+  border-radius: 20%;
+}
+
+header .nav-menu {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  justify-content: center;
+  position: relative;
+  bottom: 0%;
+  top: -6rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+header .nav-menu.visible {
+  display: flex;
+}
+
+header ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10%;
+}
+
+header li {
+  list-style: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+header li a {
+  font-family: 'Dear Dreamer', sans-serif;
+  font-size: 2rem;
+  color: #000;
+  text-decoration: none;
+  text-shadow: rgb(255, 255, 255) 2px 2px, rgb(255, 255, 255) -2px -2px, rgba(0, 0, 0, 0.3) 2px 2px 3px, rgba(0, 0, 0, 0.3) -2px -2px 3px;
+}
+
+.bookies-container {
+  width: 97%;
+  margin: 3% 1% 5% 1%;
+}
+
+footer ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer ul li {
+  list-style: none;
+}
+
+.bookies-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+
+.bookies-container ul li {
+  background-color: #010001;
+  width: 32%;
+  border-radius: 5%;
+  padding: 1%;
+  list-style: none;
+  text-align: center;
+}
+
+.bookies-container .big {
+  width: 100%;
+  margin-top: 2%;
+}
+
+.bookies-container ul li a {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .table-container {
   margin: 3% 1% 5% 1%;
 }
 
 .table-container h2,
-.free-singles-container h2 {
+.free-singles-container h2,
+.bookies-container h2 {
   font-size: 0.8rem;
+  margin-bottom: 1%;
 }
 
 .responsive-table {
@@ -52,6 +171,19 @@ body,
   border-radius: 2%;
   border: 1px solid rgb(173, 163, 163);
   width: 98%;
+}
+
+.free-singles .h-h {
+  width: 35%;
+  border-radius: 3%;
+  margin: 2% 0;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  background-color: #fe4a00;
 }
 
 .free-teams {
@@ -98,7 +230,7 @@ body,
 
 .slide {
   width: 100%;
-  height: 40vh;
+  height: 30vh;
 }
 
 .active {
@@ -115,6 +247,7 @@ body,
   border: none;
   outline: none;
   cursor: pointer;
+  color: #fe4a00;
 }
 
 .prev-button {
@@ -123,4 +256,21 @@ body,
 
 .next-button {
   right: 10px;
+}
+
+footer {
+  width: 97%;
+  height: 13vh;
+  background-color: #000101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 8%;
+  padding: 0 5%;
+}
+
+footer ul li a i {
+  color: #818081;
+  font-size: 2rem;
 }
