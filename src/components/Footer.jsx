@@ -4,23 +4,28 @@ const Footer = () => (
   <footer>
     <ul>
       <li>
-        <a href="tel:YOUR_PHONE_NUMBER_HERE">
+        <a href="tel:+233551740326">
           <i className="fas fa-phone" />
         </a>
       </li>
       <li>
-        <a href="YOUR_TELEGRAM_LINK_HERE" target="_blank" rel="noreferrer">
+        <a href="https://t.me/Mr_Congratstips" target="_blank" rel="noreferrer">
           <i className="fab fa-telegram" />
         </a>
       </li>
       <li>
-        <a href="YOUR_WHATSAPP_LINK_HERE" target="_blank" rel="noreferrer">
+        <a href="https://wa.me/message/VDQ354SPEL6KD1" target="_blank" rel="noreferrer">
           <i className="fab fa-whatsapp" />
         </a>
       </li>
       <li>
-        <a href="https://twitter.com/BawaCollins" target="_blank" rel="noreferrer">
+        <a href="https://twitter.com/Mr_Congrats?s=09" target="_blank" rel="noreferrer">
           <i className="fab fa-twitter" />
+        </a>
+      </li>
+      <li>
+        <a href="mailto:Mr.congratstips@gmail.com">
+          <i className="fas fa-envelope" />
         </a>
       </li>
     </ul>
