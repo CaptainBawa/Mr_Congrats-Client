@@ -94,6 +94,16 @@ header li a {
   margin: 3% 1% 5% 1%;
 }
 
+footer ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer ul li {
+  list-style: none;
+}
+
 .bookies-container ul {
   display: flex;
   flex-wrap: wrap;
@@ -258,16 +268,6 @@ footer {
   margin: 0 auto;
   border-radius: 8%;
   padding: 0 5%;
-}
-
-footer ul {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-footer ul li {
-  list-style: none;
 }
 
 footer ul li a i {
