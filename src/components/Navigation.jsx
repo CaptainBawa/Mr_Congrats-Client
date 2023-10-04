@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../redux/slice/authSlice';
+import { useSelector } from 'react-redux';
+// import { Link } from 'react-router-dom';
+import Logout from './auth/Logout';
 import logo from '../assets/mrcongrats.jpg';
 
 const Navigation = () => {
   const [menuVisible, setMenuVisible] = useState(false);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const handleToggleMenu = () => {
     setMenuVisible((prevState) => !prevState);
   };
 
-  const handleLogout = () => {
-    dispatch(logout());
-  };
+  // const handleLogout = () => {
+  //   dispatch(Logout());
+  // };
 
   useEffect(() => {
     const handleListItemClick = () => {
@@ -35,14 +36,26 @@ const Navigation = () => {
 
   return (
     <header>
-      <div className="mobile-nav">
-        <img src={logo} alt="logo" />
-        <div className="mobile-toggle">
-          <button type="button" onClick={handleToggleMenu}>
-            +
-          </button>
+      {isAuthenticated ? (
+        <div className="mobile-nav">
+          <img src={logo} alt="logo" />
+          <Logout />
+          <div className="mobile-toggle">
+            <button type="button" onClick={handleToggleMenu}>
+              +
+            </button>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="mobile-nav">
+          <img src={logo} alt="logo" />
+          <div className="mobile-toggle">
+            <button type="button" onClick={handleToggleMenu}>
+              +
+            </button>
+          </div>
+        </div>
+      )}
       <nav className={`nav-menu ${menuVisible ? 'visible' : ''}`}>
         <button type="button" onClick={handleToggleMenu}>
           X
@@ -50,16 +63,8 @@ const Navigation = () => {
         <ul>
           <li className="nav-list-item"><a href="#skill">Home</a></li>
           <li className="nav-list-item"><a href="#work">About Us</a></li>
-          {isAuthenticated ? (
-            <li className="nav-list-item">
-              <button type="button" onClick={handleLogout}>Logout</button>
-            </li>
-          ) : (
-            <>
-              <li className="nav-list-item"><a href="#projects">Login</a></li>
-              <li className="nav-list-item"><a href="#blog">Sign Up</a></li>
-            </>
-          )}
+          <li className="nav-list-item"><a href="#projects">Login</a></li>
+          <li className="nav-list-item"><a href="#blog">Sign Up</a></li>
           <li className="nav-list-item"><a href="#contact">Contact Us</a></li>
         </ul>
       </nav>
