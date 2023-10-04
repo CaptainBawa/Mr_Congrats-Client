@@ -8,6 +8,8 @@ import DetailsList from './components/details/DetailsList';
 import Navigation from './components/Navigation';
 import Bookies from './components/Bookies';
 import Footer from './components/Footer';
+import Signup from './components/auth/Signup';
+import Login from './components/auth/Login';
 
 const App = () => (
   <BrowserRouter>
@@ -19,6 +21,8 @@ const App = () => (
     <Routes>
       <Route path="/" element={<PredictionsList />} />
       <Route path="/details/:detailId" element={<DetailsList />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
     <Footer />
   </BrowserRouter>
