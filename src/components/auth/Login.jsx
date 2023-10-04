@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { login } from '../../redux/slice/authSlice';
 
@@ -35,10 +35,6 @@ const Login = () => {
   return (
     <div className="login-container">
       <h2>Login</h2>
-      <p>
-        Don&rsquo;t have an account?
-        <Link to="/signup">Sign up</Link>
-      </p>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form onSubmit={handleLogin}>
         <input

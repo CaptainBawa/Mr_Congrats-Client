@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Signup = () => {
@@ -35,10 +35,6 @@ const Signup = () => {
   return (
     <div className="login-container">
       <h2>Signup</h2>
-      <p>
-        Already have an account?
-        <Link to="/login">Login</Link>
-      </p>
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       <form onSubmit={handleSignup}>
         <input type="text" placeholder="name" value={name} onChange={(e) => setname(e.target.value)} className="input-field" />
