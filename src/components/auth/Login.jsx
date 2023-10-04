@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { login } from '../../redux/slice/authSlice';
 
@@ -9,15 +9,16 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post('http://localhost:3000/login', { user: { email, password } });
-      window.location.href = '/';
       const user = response.data;
       dispatch(login(user));
+      navigate('/');
     } catch (error) {
       if (error.response) {
         const errorData = error.response.data;
