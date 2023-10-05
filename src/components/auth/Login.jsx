@@ -8,6 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -18,6 +19,7 @@ const Login = () => {
       const response = await axios.post('http://localhost:3000/login', { user: { email, password } });
       const user = response.data;
       dispatch(login(user));
+      setSuccessMessage('Login successful');
       navigate('/');
     } catch (error) {
       if (error.response) {
@@ -36,6 +38,7 @@ const Login = () => {
     <div className="login-container">
       <h2>Login</h2>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {successMessage && <p className="success">{successMessage}</p>}
       <form onSubmit={handleLogin}>
         <input
           type="text"

@@ -5,6 +5,7 @@ import { logout } from '../../redux/slice/authSlice';
 
 const Logout = () => {
   const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.user.jwt_token);
 
@@ -21,6 +22,9 @@ const Logout = () => {
 
       await axios.delete('http://localhost:3000/logout', { headers });
       dispatch(logout());
+      setTimeout(() => {
+        setSuccessMessage('Logout successful');
+      }, 5000);
     } catch (error) {
       setError(`Error logging out: ${error.message}`);
     }
@@ -28,7 +32,8 @@ const Logout = () => {
 
   return (
     <div>
-      {error && <div className="error">{error}</div>}
+      {error && <p className="error">{error}</p>}
+      {successMessage && <p className="success">{successMessage}</p>}
       <button type="button" onClick={handleLogout}>Logout</button>
     </div>
   );

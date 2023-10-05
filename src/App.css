@@ -274,3 +274,10 @@ footer ul li a i {
   color: #818081;
   font-size: 2rem;
 }
+
+.success {
+  background-color: green;
+  color: #fff;
+  border-radius: 5%;
+  padding: 1%;
+}
