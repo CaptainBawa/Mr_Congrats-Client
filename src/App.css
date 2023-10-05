@@ -275,9 +275,60 @@ footer ul li a i {
   font-size: 2rem;
 }
 
-.success {
-  background-color: green;
-  color: #fff;
+.login-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: fixed;
+  left: 5%;
+  top: 40%;
+  z-index: 9000;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.login-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: #f00;
+  margin-top: 10px;
   border-radius: 5%;
   padding: 1%;
+}
+
+.success {
+  color: #0c0;
+  margin-top: 10px;
+  border-radius: 5%;
+  padding: 1%;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
 }
