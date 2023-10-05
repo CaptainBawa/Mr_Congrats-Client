@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
+import { logout } from '../../redux/slice/authSlice';
 
 const Logout = () => {
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.user.jwt_token);
 
   const handleLogout = async () => {
@@ -20,7 +20,7 @@ const Logout = () => {
       };
 
       await axios.delete('http://localhost:3000/logout', { headers });
-      navigate('/');
+      dispatch(logout());
     } catch (error) {
       setError(`Error logging out: ${error.message}`);
     }
