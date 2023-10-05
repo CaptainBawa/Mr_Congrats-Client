@@ -6,7 +6,18 @@ const Logout = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.delete('http://localhost:3000/logout');
+      const token = localStorage.getItem('jwtToken');
+
+      if (!token) {
+        setError('JWT token not found in localStorage.');
+        return;
+      }
+
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+
+      await axios.delete('http://localhost:3000/logout', { headers });
     } catch (error) {
       setError(`Error logging out: ${error.message}`);
     }
