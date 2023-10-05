@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import Logout from './auth/Logout';
 import logo from '../assets/mrcongrats.jpg';
 
 const Navigation = () => {
   const [menuVisible, setMenuVisible] = useState(false);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  // const dispatch = useDispatch();
 
   const handleToggleMenu = () => {
     setMenuVisible((prevState) => !prevState);
   };
-
-  // const handleLogout = () => {
-  //   dispatch(Logout());
-  // };
 
   useEffect(() => {
     const handleListItemClick = () => {
