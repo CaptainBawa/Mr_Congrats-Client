@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchPredictions, selectPredictions } from '../../redux/slice/predictionsSlice';
 import FreeCombosList from '../free_combos/Free_CombosList';
 import PaidCombosList from '../paid_combos/Paid_CombosList';
+import SubscriptionNote from '../SubscriptionNote';
 
 const PredictionsList = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const PredictionsList = () => {
 
   return (
     <div>
+      <SubscriptionNote />
       <PaidCombosList />
       <FreeCombosList />
       <div className="free-singles-container">
