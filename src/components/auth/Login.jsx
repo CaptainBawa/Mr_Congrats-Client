@@ -20,7 +20,7 @@ const Login = () => {
       const user = response.data;
       dispatch(login(user));
       setSuccessMessage('Login successful');
-      navigate('/');
+      navigate('/order');
     } catch (error) {
       if (error.response) {
         const errorData = error.response.data;
