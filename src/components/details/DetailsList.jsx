@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchDetails, selectDetails } from '../../redux/slice/detailsSlice';
 
 const DetailsList = () => {
@@ -11,8 +12,9 @@ const DetailsList = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <table>
+    <div className="table-container">
+      <Link to="/">&larr;</Link>
+      <table className="responsive-table">
         <thead>
           <tr>
             <th>Date</th>

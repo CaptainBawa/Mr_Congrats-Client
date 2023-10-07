@@ -11,7 +11,7 @@ body,
   width: 100%;
   height: 100vh;
   background-color: rgba(238, 245, 248, 255);
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
 }
 
 header img {
@@ -110,6 +110,19 @@ footer ul li {
   gap: 2%;
 }
 
+.order-card a,
+.table-container a {
+  text-decoration: none;
+  font-size: 2.5rem;
+  color: #fe4a00;
+  position: relative;
+  right: 45%;
+}
+
+.table-container a {
+  right: 0;
+}
+
 .bookies-container ul li {
   background-color: #010001;
   width: 32%;
@@ -117,6 +130,7 @@ footer ul li {
   padding: 1%;
   list-style: none;
   text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .bookies-container .big {
@@ -137,7 +151,8 @@ footer ul li {
 
 .table-container h2,
 .free-singles-container h2,
-.bookies-container h2 {
+.bookies-container h2,
+.note-container h2 {
   font-size: 0.8rem;
   margin-bottom: 1%;
 }
@@ -145,6 +160,7 @@ footer ul li {
 .responsive-table {
   background-color: #141414;
   border-radius: 1%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .responsive-table th,
@@ -171,12 +187,14 @@ footer ul li {
   border-radius: 2%;
   border: 1px solid rgb(173, 163, 163);
   width: 98%;
+  margin-bottom: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .free-singles .h-h {
-  width: 35%;
+  width: 100%;
   border-radius: 3%;
-  margin: 2% 0;
+  margin-top: 2%;
   padding: 1%;
   display: flex;
   justify-content: center;
@@ -226,6 +244,7 @@ footer ul li {
   position: relative;
   width: 97%;
   margin: 0 auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .slide {
@@ -268,9 +287,202 @@ footer {
   margin: 0 auto;
   border-radius: 8%;
   padding: 0 5%;
+  position: fixed;
+  top: 85%;
+  left: 0;
+  right: 0;
 }
 
 footer ul li a i {
   color: #818081;
   font-size: 2rem;
 }
+
+.login-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: fixed;
+  left: 5%;
+  top: 40%;
+  z-index: 9000;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.login-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: #f00;
+  margin-top: 10px;
+  border-radius: 5%;
+  padding: 1%;
+}
+
+.success {
+  color: #0c0;
+  margin-top: 10px;
+  border-radius: 5%;
+  padding: 1%;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.note-container {
+  width: 97%;
+  margin: 0 auto;
+}
+
+.note {
+  width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 5%;
+  padding: 2%;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.note p,
+.note button {
+  font-size: 1.1rem;
+}
+
+.order-card {
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: #fff;
+  border-radius: 5%;
+  padding: 3%;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 7rem;
+}
+
+.payment-options div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+}
+
+.payment-options div img,
+.payment-options div img,
+.payment-options div img {
+  width: 50%;
+  height: auto;
+}
+
+.payment-options div h3,
+.payment-options div h3,
+.payment-options div h3 {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.admin-data {
+  padding: 20px;
+}
+
+.admin-data table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-data th,
+.admin-data td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.admin-data th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.admin-data tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.admin-data tr:hover {
+  background-color: #ddd;
+}
+
+.admin-data input[type="text"], select {
+  width: 100%;
+  padding: 5px;
+}
+
+.admin-data button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.admin-data button[type="button"] {
+  background-color: #0c0;
+  color: #fff;
+  border: none;
+}
+
+.admin-data button[type="button"]:hover {
+  background-color: rgb(76, 238, 76);
+}
+
+.admin-data #btn-bg-red {
+  background-color: #f00;
+}
+
+.admin-data #btn-bg-red:hover {
+  background-color: rgb(247, 49, 49);
+}
+
+

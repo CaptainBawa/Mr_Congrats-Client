@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import Logout from './auth/Logout';
 import logo from '../assets/mrcongrats.jpg';
 
 const Navigation = () => {
   const [menuVisible, setMenuVisible] = useState(false);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const handleToggleMenu = () => {
     setMenuVisible((prevState) => !prevState);
@@ -27,14 +30,26 @@ const Navigation = () => {
 
   return (
     <header>
-      <div className="mobile-nav">
-        <img src={logo} alt="logo" />
-        <div className="mobile-toggle">
-          <button type="button" onClick={handleToggleMenu}>
-            +
-          </button>
+      {isAuthenticated ? (
+        <div className="mobile-nav">
+          <img src={logo} alt="logo" />
+          <Logout />
+          <div className="mobile-toggle">
+            <button type="button" onClick={handleToggleMenu}>
+              +
+            </button>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="mobile-nav">
+          <img src={logo} alt="logo" />
+          <div className="mobile-toggle">
+            <button type="button" onClick={handleToggleMenu}>
+              +
+            </button>
+          </div>
+        </div>
+      )}
       <nav className={`nav-menu ${menuVisible ? 'visible' : ''}`}>
         <button type="button" onClick={handleToggleMenu}>
           X
