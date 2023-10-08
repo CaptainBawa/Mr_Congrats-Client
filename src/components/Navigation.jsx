@@ -7,6 +7,7 @@ import logo from '../assets/mrcongrats.jpg';
 const Navigation = () => {
   const [menuVisible, setMenuVisible] = useState(false);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const userRole = useSelector((state) => state.auth.user.data.role);
 
   const handleToggleMenu = () => {
     setMenuVisible((prevState) => !prevState);
@@ -35,7 +36,7 @@ const Navigation = () => {
         <div className="mobile-nav">
           <img src={logo} alt="logo" />
           <Logout />
-          <Link to="/prince">Admin Panel</Link>
+          {userRole === 'admin' && <Link to="/prince">Admin Panel</Link>}
           <div className="mobile-toggle">
             <button type="button" onClick={handleToggleMenu}>
               +
