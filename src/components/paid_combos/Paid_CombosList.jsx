@@ -12,13 +12,13 @@ const PaidCombosList = () => {
 
   const totalOdds = paidcombos.reduce((total, paidcombo) => total + paidcombo.odd, 0);
 
-  function formatTime(time) {
+  const formatTime = (time) => {
     const [hours, minutes] = time.split(':');
     const amOrPm = parseInt(hours, 10) >= 12 ? 'PM' : 'AM';
     const formattedHours = parseInt(hours, 10) % 12 || 12;
     const formattedMinutes = parseInt(minutes, 10) < 10 ? `0${minutes}` : minutes;
     return `${formattedHours}:${formattedMinutes}${amOrPm}`;
-  }
+  };
 
   return (
     <div className="table-container">
