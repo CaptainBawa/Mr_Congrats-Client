@@ -34,9 +34,9 @@ export const deleteUser = createAsyncThunk('users/deleteUser', async (userId) =>
   }
 });
 
-export const updateUser = createAsyncThunk('users/updateUser', async (userData) => {
+export const updateUser = createAsyncThunk('users/updateUser', async (user) => {
   try {
-    const { id, ...updatedData } = userData;
+    const { id, ...updatedData } = user;
     const response = await axios.put(`http://localhost:3000/current_user/${id}`, updatedData);
     return response.data;
   } catch (error) {
