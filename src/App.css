@@ -425,3 +425,64 @@ footer ul li a i {
   font-size: 0.8rem;
   text-align: center;
 }
+
+.admin-data {
+  padding: 20px;
+}
+
+.admin-data table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-data th,
+.admin-data td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.admin-data th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.admin-data tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.admin-data tr:hover {
+  background-color: #ddd;
+}
+
+.admin-data input[type="text"], select {
+  width: 100%;
+  padding: 5px;
+}
+
+.admin-data button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.admin-data button[type="button"] {
+  background-color: #0c0;
+  color: #fff;
+  border: none;
+}
+
+.admin-data button[type="button"]:hover {
+  background-color: rgb(76, 238, 76);
+}
+
+.admin-data #btn-bg-red {
+  background-color: #f00;
+}
+
+.admin-data #btn-bg-red:hover {
+  background-color: rgb(247, 49, 49);
+}
+
+
