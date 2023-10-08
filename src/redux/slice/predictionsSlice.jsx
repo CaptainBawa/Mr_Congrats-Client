@@ -34,9 +34,9 @@ export const deletePrediction = createAsyncThunk('predictions/deletePrediction',
   }
 });
 
-export const updatePrediction = createAsyncThunk('predictions/updatePrediction', async (predictionData) => {
+export const updatePrediction = createAsyncThunk('predictions/updatePrediction', async (prediction) => {
   try {
-    const { id, ...updatedData } = predictionData;
+    const { id, ...updatedData } = prediction;
     const response = await axios.put(`http://localhost:3000/predictions/${id}`, updatedData);
     return response.data;
   } catch (error) {
