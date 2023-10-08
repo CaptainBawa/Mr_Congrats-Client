@@ -15,8 +15,7 @@ const PredictionsPanel = () => {
   const predictions = useSelector(selectPredictions);
   const status = useSelector(selectPredictionsStatus);
   const error = useSelector(selectPredictionsError);
-  const user = useSelector((state) => state.auth.user.id);
-  console.log('user', user);
+  const user = useSelector((state) => state.auth.user.data.id);
 
   const [editPredictionId, setEditPredictionId] = useState(null);
   const [editedPredictionData, setEditedPredictionData] = useState({});
@@ -30,7 +29,7 @@ const PredictionsPanel = () => {
     away_team: '',
     tip: '',
     result: '',
-    user_id: user.id,
+    user_id: user,
   });
 
   useEffect(() => {
@@ -83,14 +82,21 @@ const PredictionsPanel = () => {
           away_team: '',
           tip: '',
           result: '',
-          user_id: user.id,
+          user_id: user,
         });
       })
       .catch((error) => {
         throw new Error('Failed to create prediction:', error);
       });
   };
-  console.log(newPredictionData);
+
+  function formatTime(time) {
+    const [hours, minutes] = time.split(':');
+    const amOrPm = parseInt(hours, 10) >= 12 ? 'PM' : 'AM';
+    const formattedHours = parseInt(hours, 10) % 12 || 12;
+    const formattedMinutes = parseInt(minutes, 10) < 10 ? `0${minutes}` : minutes;
+    return `${formattedHours}:${formattedMinutes}${amOrPm}`;
+  }
 
   if (status === 'loading') {
     return <div>Loading...</div>;
@@ -140,15 +146,15 @@ const PredictionsPanel = () => {
               <td>
                 {editPredictionId === prediction.id ? (
                   <input
-                    type="time"
+                    type="text"
                     value={editedPredictionData.time}
                     onChange={(e) => setEditedPredictionData({
                       ...editedPredictionData,
-                      date: e.target.value,
+                      time: e.target.value,
                     })}
                   />
                 ) : (
-                  prediction.time
+                  formatTime(prediction.time)
                 )}
               </td>
               <td>
@@ -158,7 +164,7 @@ const PredictionsPanel = () => {
                     value={editedPredictionData.league}
                     onChange={(e) => setEditedPredictionData({
                       ...editedPredictionData,
-                      date: e.target.value,
+                      league: e.target.value,
                     })}
                   />
                 ) : (
@@ -172,7 +178,7 @@ const PredictionsPanel = () => {
                     value={editedPredictionData.home_team_logo}
                     onChange={(e) => setEditedPredictionData({
                       ...editedPredictionData,
-                      date: e.target.value,
+                      home_team_logo: e.target.value,
                     })}
                   />
                 ) : (
@@ -186,7 +192,7 @@ const PredictionsPanel = () => {
                     value={editedPredictionData.away_team_logo}
                     onChange={(e) => setEditedPredictionData({
                       ...editedPredictionData,
-                      date: e.target.value,
+                      away_team_logo: e.target.value,
                     })}
                   />
                 ) : (
@@ -200,7 +206,7 @@ const PredictionsPanel = () => {
                     value={editedPredictionData.home_team}
                     onChange={(e) => setEditedPredictionData({
                       ...editedPredictionData,
-                      date: e.target.value,
+                      home_team: e.target.value,
                     })}
                   />
                 ) : (
@@ -215,7 +221,7 @@ const PredictionsPanel = () => {
                     value={editedPredictionData.away_team}
                     onChange={(e) => setEditedPredictionData({
                       ...editedPredictionData,
-                      date: e.target.value,
+                      away_team: e.target.value,
                     })}
                   />
                 ) : (
@@ -229,7 +235,7 @@ const PredictionsPanel = () => {
                     value={editedPredictionData.tip}
                     onChange={(e) => setEditedPredictionData({
                       ...editedPredictionData,
-                      date: e.target.value,
+                      tip: e.target.value,
                     })}
                   />
                 ) : (
@@ -243,7 +249,7 @@ const PredictionsPanel = () => {
                     value={editedPredictionData.result}
                     onChange={(e) => setEditedPredictionData({
                       ...editedPredictionData,
-                      date: e.target.value,
+                      result: e.target.value,
                     })}
                   />
                 ) : (
