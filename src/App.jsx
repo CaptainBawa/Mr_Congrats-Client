@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import Order from './components/Order';
+import AdminPanel from './components/admin/AdminPanel';
 
 const App = () => (
   <BrowserRouter>
@@ -21,6 +22,7 @@ const App = () => (
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/order" element={<Order />} />
+      <Route path="/prince" element={<AdminPanel />} />
     </Routes>
     <Footer />
   </BrowserRouter>
