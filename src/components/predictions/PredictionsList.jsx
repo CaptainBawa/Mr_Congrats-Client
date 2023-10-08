@@ -14,6 +14,14 @@ const PredictionsList = () => {
     dispatch(fetchPredictions());
   }, [dispatch]);
 
+  function formatTime(time) {
+    const [hours, minutes] = time.split(':');
+    const amOrPm = parseInt(hours, 10) >= 12 ? 'PM' : 'AM';
+    const formattedHours = parseInt(hours, 10) % 12 || 12;
+    const formattedMinutes = parseInt(minutes, 10) < 10 ? `0${minutes}` : minutes;
+    return `${formattedHours}:${formattedMinutes}${amOrPm}`;
+  }
+
   return (
     <div>
       <SubscriptionNote />
@@ -44,7 +52,7 @@ const PredictionsList = () => {
               </h3>
               <h3>
                 Time:
-                {prediction.time}
+                {formatTime(prediction.time)}
               </h3>
               <h3>
                 Results:
