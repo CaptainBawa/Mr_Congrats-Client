@@ -81,7 +81,7 @@ const AdminPanel = () => {
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
-            <th>Subscription Status</th>
+            <th>Subscribed</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -145,12 +145,12 @@ const AdminPanel = () => {
                 {editUserId === user.id ? (
                   <>
                     <button type="button" onClick={handleSaveEdit}>Save</button>
-                    <button type="button" onClick={handleCancelEdit}>Cancel</button>
+                    <button id="btn-bg-red" type="button" onClick={handleCancelEdit}>Cancel</button>
                   </>
                 ) : (
                   <>
                     <button type="button" onClick={() => handleEdit(user)}>Edit</button>
-                    <button type="button" onClick={() => handleDelete(user.id)}>Delete</button>
+                    <button id="btn-bg-red" type="button" onClick={() => handleDelete(user.id)}>Delete</button>
                   </>
                 )}
               </td>
