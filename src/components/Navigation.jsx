@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Logout from './auth/Logout';
 import logo from '../assets/mrcongrats.jpg';
 
@@ -34,6 +35,7 @@ const Navigation = () => {
         <div className="mobile-nav">
           <img src={logo} alt="logo" />
           <Logout />
+          <Link to="/prince">Admin Panel</Link>
           <div className="mobile-toggle">
             <button type="button" onClick={handleToggleMenu}>
               +
