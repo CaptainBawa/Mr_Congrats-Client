@@ -12,6 +12,14 @@ const FreeCombosList = () => {
 
   const totalOdds = freecombos.reduce((total, freecombo) => total + freecombo.odd, 0);
 
+  const formatTime = (time) => {
+    const [hours, minutes] = time.split(':');
+    const amOrPm = parseInt(hours, 10) >= 12 ? 'PM' : 'AM';
+    const formattedHours = parseInt(hours, 10) % 12 || 12;
+    const formattedMinutes = parseInt(minutes, 10) < 10 ? `0${minutes}` : minutes;
+    return `${formattedHours}:${formattedMinutes}${amOrPm}`;
+  };
+
   return (
     <div className="table-container">
       <h2>Free Combo</h2>
@@ -32,7 +40,7 @@ const FreeCombosList = () => {
           {freecombos.map((freecombo) => (
             <tr key={freecombo.id}>
               <td>{freecombo.date}</td>
-              <td>{freecombo.time}</td>
+              <td>{formatTime(freecombo.time)}</td>
               <td>{freecombo.league}</td>
               <td>{freecombo.home_team}</td>
               <td>{freecombo.away_team}</td>

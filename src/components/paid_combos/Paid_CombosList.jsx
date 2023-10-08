@@ -12,6 +12,14 @@ const PaidCombosList = () => {
 
   const totalOdds = paidcombos.reduce((total, paidcombo) => total + paidcombo.odd, 0);
 
+  const formatTime = (time) => {
+    const [hours, minutes] = time.split(':');
+    const amOrPm = parseInt(hours, 10) >= 12 ? 'PM' : 'AM';
+    const formattedHours = parseInt(hours, 10) % 12 || 12;
+    const formattedMinutes = parseInt(minutes, 10) < 10 ? `0${minutes}` : minutes;
+    return `${formattedHours}:${formattedMinutes}${amOrPm}`;
+  };
+
   return (
     <div className="table-container">
       <h2>Paid combo: For subscribed users only</h2>
@@ -32,7 +40,7 @@ const PaidCombosList = () => {
           {paidcombos.map((paidcombo) => (
             <tr key={paidcombo.id}>
               <td>{paidcombo.date}</td>
-              <td>{paidcombo.time}</td>
+              <td>{formatTime(paidcombo.time)}</td>
               <td>{paidcombo.league}</td>
               <td>{paidcombo.home_team}</td>
               <td>{paidcombo.away_team}</td>

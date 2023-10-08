@@ -485,4 +485,30 @@ footer ul li a i {
   background-color: rgb(247, 49, 49);
 }
 
+.admin-data .add-data {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+.admin-data .add-data h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.admin-data .add-data input[type="date"],
+.admin-data .add-data input[type="time"],
+.admin-data .add-data input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+
+
 
