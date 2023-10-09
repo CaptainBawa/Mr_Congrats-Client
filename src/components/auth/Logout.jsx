@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { logout } from '../../redux/slice/authSlice';
 
@@ -7,6 +8,7 @@ const Logout = () => {
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const token = useSelector((state) => state.auth.user.jwt_token);
 
   const handleLogout = async () => {
@@ -25,6 +27,8 @@ const Logout = () => {
       setTimeout(() => {
         setSuccessMessage('Logout successful');
       }, 5000);
+      sessionStorage.clear();
+      navigate('/');
     } catch (error) {
       setError(`Error logging out: ${error.message}`);
     }
