@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import addTokenToHeaders from '../../components/JwtToken';
 
 const initialState = {
   adverts: [],
@@ -18,7 +19,7 @@ export const fetchAdverts = createAsyncThunk('adverts/fetchAdverts', async () =>
 
 export const createAdvert = createAsyncThunk('adverts/createAdvert', async (advertData) => {
   try {
-    const response = await axios.post('http://localhost:3000/adverts', advertData);
+    const response = await axios.post('http://localhost:3000/adverts', advertData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to create an advert');
@@ -27,7 +28,7 @@ export const createAdvert = createAsyncThunk('adverts/createAdvert', async (adve
 
 export const deleteAdvert = createAsyncThunk('adverts/deleteAdvert', async (advertId) => {
   try {
-    await axios.delete(`http://localhost:3000/adverts/${advertId}`);
+    await axios.delete(`http://localhost:3000/adverts/${advertId}`, addTokenToHeaders());
     return advertId;
   } catch (error) {
     throw new Error('Failed to delete an advert');
