@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import addTokenToHeaders from '../../components/JwtToken';
 
 const initialState = {
   predictions: [],
@@ -18,7 +19,7 @@ export const fetchPredictions = createAsyncThunk('predictions/fetchPredictions',
 
 export const createPrediction = createAsyncThunk('predictions/createPrediction', async (predictionData) => {
   try {
-    const response = await axios.post('http://localhost:3000/predictions', predictionData);
+    const response = await axios.post('http://localhost:3000/predictions', predictionData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to create a prediction');
@@ -27,7 +28,7 @@ export const createPrediction = createAsyncThunk('predictions/createPrediction',
 
 export const deletePrediction = createAsyncThunk('predictions/deletePrediction', async (predictionId) => {
   try {
-    await axios.delete(`http://localhost:3000/predictions/${predictionId}`);
+    await axios.delete(`http://localhost:3000/predictions/${predictionId}`, addTokenToHeaders());
     return predictionId;
   } catch (error) {
     throw new Error('Failed to delete a prediction');
@@ -37,7 +38,7 @@ export const deletePrediction = createAsyncThunk('predictions/deletePrediction',
 export const updatePrediction = createAsyncThunk('predictions/updatePrediction', async (prediction) => {
   try {
     const { id, ...updatedData } = prediction;
-    const response = await axios.put(`http://localhost:3000/predictions/${id}`, updatedData);
+    const response = await axios.put(`http://localhost:3000/predictions/${id}`, updatedData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to update the prediction');
