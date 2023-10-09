@@ -14,7 +14,7 @@ const Logout = () => {
   const handleLogout = async () => {
     try {
       if (!token) {
-        setError('JWT token not found in redux store.');
+        setError('JWT token not found in session storage.');
         return;
       }
 
