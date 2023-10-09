@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -12,6 +12,13 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const token = sessionStorage.getItem('authToken');
+    if (token) {
+      navigate('/order');
+    }
+  }, [navigate]);
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -19,6 +26,7 @@ const Login = () => {
       const response = await axios.post('http://localhost:3000/login', { user: { email, password } });
       const user = response.data;
       dispatch(login(user));
+      sessionStorage.setItem('authToken', user.jwt_token);
       setSuccessMessage('Login successful');
       navigate('/order');
     } catch (error) {

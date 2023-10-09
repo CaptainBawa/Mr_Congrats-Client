@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { logout } from '../../redux/slice/authSlice';
 
@@ -7,12 +8,13 @@ const Logout = () => {
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.auth.user.jwt_token);
+  const navigate = useNavigate();
+  const token = sessionStorage.getItem('authToken');
 
   const handleLogout = async () => {
     try {
       if (!token) {
-        setError('JWT token not found in redux store.');
+        setError('JWT token not found in session storage.');
         return;
       }
 
@@ -25,6 +27,8 @@ const Logout = () => {
       setTimeout(() => {
         setSuccessMessage('Logout successful');
       }, 5000);
+      sessionStorage.clear();
+      navigate('/');
     } catch (error) {
       setError(`Error logging out: ${error.message}`);
     }

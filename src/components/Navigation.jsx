@@ -1,17 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Logout from './auth/Logout';
 import logo from '../assets/mrcongrats.jpg';
 
 const Navigation = () => {
+  const dispatch = useDispatch();
   const [menuVisible, setMenuVisible] = useState(false);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const userRole = useSelector((state) => state.auth.user.data.role);
+  const userRole = useSelector((state) => state.auth.user?.data?.role);
+
+  useEffect(() => {
+    const storedAuthState = sessionStorage.getItem('authState');
+    if (storedAuthState) {
+      dispatch({ type: 'SET_AUTH_STATE', isAuthenticated: JSON.parse(storedAuthState) });
+    }
+  }, [dispatch]);
 
   const handleToggleMenu = () => {
     setMenuVisible((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    sessionStorage.setItem('authState', JSON.stringify(isAuthenticated));
+  }, [isAuthenticated]);
 
   useEffect(() => {
     const handleListItemClick = () => {
@@ -36,7 +48,6 @@ const Navigation = () => {
         <div className="mobile-nav">
           <img src={logo} alt="logo" />
           <Logout />
-          {userRole === 'admin' && <Link to="/prince">Admin Panel</Link>}
           <div className="mobile-toggle">
             <button type="button" onClick={handleToggleMenu}>
               +
@@ -63,6 +74,7 @@ const Navigation = () => {
           <li className="nav-list-item"><a href="#projects">Login</a></li>
           <li className="nav-list-item"><a href="#blog">Sign Up</a></li>
           <li className="nav-list-item"><a href="#contact">Contact Us</a></li>
+          <li className="nav-list-item">{userRole === 'admin' && <Link to="/prince">Admin Panel</Link>}</li>
         </ul>
       </nav>
     </header>

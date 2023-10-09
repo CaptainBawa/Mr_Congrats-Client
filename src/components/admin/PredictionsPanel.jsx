@@ -15,7 +15,7 @@ const PredictionsPanel = () => {
   const predictions = useSelector(selectPredictions);
   const status = useSelector(selectPredictionsStatus);
   const error = useSelector(selectPredictionsError);
-  const user = useSelector((state) => state.auth.user.data.id);
+  const user = useSelector((state) => state.auth.user?.data?.id);
 
   const [editPredictionId, setEditPredictionId] = useState(null);
   const [editedPredictionData, setEditedPredictionData] = useState({});

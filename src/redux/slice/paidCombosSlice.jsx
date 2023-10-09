@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import addTokenToHeaders from '../../components/JwtToken';
 
 const initialState = {
   paidCombos: [],
@@ -18,7 +19,7 @@ export const fetchPaidCombos = createAsyncThunk('paidCombos/fetchPaidCombos', as
 
 export const createPaidCombo = createAsyncThunk('paidCombos/createPaidCombo', async (paidComboData) => {
   try {
-    const response = await axios.post('http://localhost:3000/paid_combos', paidComboData);
+    const response = await axios.post('http://localhost:3000/paid_combos', paidComboData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to create a paid combo');
@@ -27,7 +28,7 @@ export const createPaidCombo = createAsyncThunk('paidCombos/createPaidCombo', as
 
 export const deletePaidCombo = createAsyncThunk('paidCombos/deletePaidCombo', async (paidComboId) => {
   try {
-    await axios.delete(`http://localhost:3000/paid_combos/${paidComboId}`);
+    await axios.delete(`http://localhost:3000/paid_combos/${paidComboId}`, addTokenToHeaders());
     return paidComboId;
   } catch (error) {
     throw new Error('Failed to delete a paid combo');
@@ -37,7 +38,7 @@ export const deletePaidCombo = createAsyncThunk('paidCombos/deletePaidCombo', as
 export const updatePaidCombo = createAsyncThunk('paidCombos/updatePaidCombo', async (paidComboData) => {
   try {
     const { id, ...updatedData } = paidComboData;
-    const response = await axios.put(`http://localhost:3000/paid_combos/${id}`, updatedData);
+    const response = await axios.put(`http://localhost:3000/paid_combos/${id}`, updatedData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to update the paid combo');

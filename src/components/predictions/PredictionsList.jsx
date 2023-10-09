@@ -5,10 +5,13 @@ import { fetchPredictions, selectPredictions } from '../../redux/slice/predictio
 import FreeCombosList from '../free_combos/Free_CombosList';
 import PaidCombosList from '../paid_combos/Paid_CombosList';
 import SubscriptionNote from '../SubscriptionNote';
+import Note from '../Note';
 
 const PredictionsList = () => {
   const dispatch = useDispatch();
   const predictions = useSelector(selectPredictions);
+  const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  const subscriptionStatus = useSelector((state) => state.auth.user?.data?.subscription_status);
 
   useEffect(() => {
     dispatch(fetchPredictions());
@@ -22,11 +25,33 @@ const PredictionsList = () => {
     return `${formattedHours}:${formattedMinutes}${amOrPm}`;
   };
 
+  let content;
+  if (isAuth && subscriptionStatus === true) {
+    content = (
+      <>
+        <PaidCombosList />
+        <FreeCombosList />
+      </>
+    );
+  } else if (isAuth && subscriptionStatus === false) {
+    content = (
+      <>
+        <Note />
+        <FreeCombosList />
+      </>
+    );
+  } else {
+    content = (
+      <>
+        <SubscriptionNote />
+        <FreeCombosList />
+      </>
+    );
+  }
+
   return (
     <div>
-      <SubscriptionNote />
-      <PaidCombosList />
-      <FreeCombosList />
+      {content}
       <div className="free-singles-container">
         <h2>Free singles</h2>
         {predictions.map((prediction) => (
