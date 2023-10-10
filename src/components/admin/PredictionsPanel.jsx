@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  selectPredictions,
-  selectPredictionsStatus,
-  selectPredictionsError,
-  fetchPredictions,
   createPrediction,
   deletePrediction,
   updatePrediction,
@@ -12,9 +8,9 @@ import {
 
 const PredictionsPanel = () => {
   const dispatch = useDispatch();
-  const predictions = useSelector(selectPredictions);
-  const status = useSelector(selectPredictionsStatus);
-  const error = useSelector(selectPredictionsError);
+  const predictions = useSelector((state) => state.predictions?.predictions);
+  const status = useSelector((state) => state.predictions?.status);
+  const error = useSelector(((state) => state.predictions?.error));
   const user = useSelector((state) => state.auth.user?.data?.id);
 
   const [editPredictionId, setEditPredictionId] = useState(null);
@@ -31,10 +27,6 @@ const PredictionsPanel = () => {
     result: '',
     user_id: user,
   });
-
-  useEffect(() => {
-    dispatch(fetchPredictions());
-  }, [dispatch]);
 
   const handleEdit = (prediction) => {
     setEditPredictionId(prediction.id);
