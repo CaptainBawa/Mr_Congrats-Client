@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  selectFreeCombos,
-  selectFreeCombosStatus,
-  selectFreeCombosError,
-  fetchFreeCombos,
   createFreeCombo,
   deleteFreeCombo,
   updateFreeCombo,
@@ -12,9 +8,9 @@ import {
 
 const FreeComboPanel = () => {
   const dispatch = useDispatch();
-  const freeCombos = useSelector(selectFreeCombos);
-  const status = useSelector(selectFreeCombosStatus);
-  const error = useSelector(selectFreeCombosError);
+  const freeCombos = useSelector((state) => state.freeCombos?.freeCombos);
+  const status = useSelector((state) => state.freeCombos?.status);
+  const error = useSelector(((state) => state.freeCombos?.error));
   const user = useSelector((state) => state.auth.user?.data?.id);
 
   const [editFreeComboId, setEditFreeComboId] = useState(null);
@@ -31,21 +27,17 @@ const FreeComboPanel = () => {
     user_id: user,
   });
 
-  useEffect(() => {
-    dispatch(fetchFreeCombos());
-  }, [status, dispatch]);
-
-  const handleEdit = (freeCombo) => {
+  const handleFreeComboEdit = (freeCombo) => {
     setEditFreeComboId(freeCombo.id);
     setEditedFreeComboData(freeCombo);
   };
 
-  const handleCancelEdit = () => {
+  const handleFreeComboCancelEdit = () => {
     setEditFreeComboId(null);
     setEditedFreeComboData({});
   };
 
-  const handleSaveEdit = () => {
+  const handleFreeComboSaveEdit = () => {
     dispatch(updateFreeCombo({ free_combo: editedFreeComboData, id: editFreeComboId }))
       .then(() => {
         setEditFreeComboId(null);
@@ -56,14 +48,14 @@ const FreeComboPanel = () => {
       });
   };
 
-  const handleDelete = (id) => {
+  const handleFreeComboDelete = (id) => {
     dispatch(deleteFreeCombo(id))
       .catch((error) => {
         throw new Error('Failed to delete free combo:', error);
       });
   };
 
-  const handleInputChange = (e) => {
+  const handleFreeComboInputChange = (e) => {
     const { name, value } = e.target;
     setNewFreeComboData({ ...newFreeComboData, [name]: value });
   };
@@ -103,7 +95,7 @@ const FreeComboPanel = () => {
 
   return (
     <div className="admin-data">
-      <h2>All single predictions</h2>
+      <h2>Free Combos</h2>
       <table>
         <thead>
           <tr>
@@ -239,13 +231,13 @@ const FreeComboPanel = () => {
               <td>
                 {editFreeComboId === freeCombo.id ? (
                   <>
-                    <button type="button" onClick={handleSaveEdit}>Save</button>
-                    <button id="btn-bg-red" type="button" onClick={handleCancelEdit}>Cancel</button>
+                    <button type="button" onClick={handleFreeComboSaveEdit}>Save</button>
+                    <button id="btn-bg-red" type="button" onClick={handleFreeComboCancelEdit}>Cancel</button>
                   </>
                 ) : (
                   <>
-                    <button type="button" onClick={() => handleEdit(freeCombo)}>Edit</button>
-                    <button id="btn-bg-red" type="button" onClick={() => handleDelete(freeCombo.id)}>Delete</button>
+                    <button type="button" onClick={() => handleFreeComboEdit(freeCombo)}>Edit</button>
+                    <button id="btn-bg-red" type="button" onClick={() => handleFreeComboDelete(freeCombo.id)}>Delete</button>
                   </>
                 )}
               </td>
@@ -260,56 +252,56 @@ const FreeComboPanel = () => {
           name="date"
           placeholder="Date"
           value={newFreeComboData.date}
-          onChange={handleInputChange}
+          onChange={handleFreeComboInputChange}
         />
         <input
           type="time"
           name="time"
           placeholder="Time"
           value={newFreeComboData.time}
-          onChange={handleInputChange}
+          onChange={handleFreeComboInputChange}
         />
         <input
           type="text"
           name="league"
           placeholder="League"
           value={newFreeComboData.league}
-          onChange={handleInputChange}
+          onChange={handleFreeComboInputChange}
         />
         <input
           type="text"
           name="home_team"
           placeholder="Home Team"
           value={newFreeComboData.home_team}
-          onChange={handleInputChange}
+          onChange={handleFreeComboInputChange}
         />
         <input
           type="text"
           name="away_team"
           placeholder="Away Team"
           value={newFreeComboData.away_team}
-          onChange={handleInputChange}
+          onChange={handleFreeComboInputChange}
         />
         <input
           type="text"
           name="tip"
           placeholder="Tip"
           value={newFreeComboData.tip}
-          onChange={handleInputChange}
+          onChange={handleFreeComboInputChange}
         />
         <input
           type="text"
           name="odd"
           placeholder="Odd"
           value={newFreeComboData.odd}
-          onChange={handleInputChange}
+          onChange={handleFreeComboInputChange}
         />
         <input
           type="text"
           name="result"
           placeholder="Results"
           value={newFreeComboData.result}
-          onChange={handleInputChange}
+          onChange={handleFreeComboInputChange}
         />
         <button type="button" onClick={handleAddFreeCombo}>Add Free Combo</button>
       </div>
