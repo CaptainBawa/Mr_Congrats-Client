@@ -9,6 +9,7 @@ import {
   selectUsersError,
 } from '../../redux/slice/usersSlice';
 import PredictionsPanel from './PredictionsPanel';
+import FreeComboPanel from './FreeComboPanel';
 
 const AdminPanel = () => {
   const dispatch = useDispatch();
@@ -165,6 +166,7 @@ const AdminPanel = () => {
         </table>
       </div>
       <PredictionsPanel />
+      <FreeComboPanel />
     </>
   );
 };
