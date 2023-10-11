@@ -10,6 +10,7 @@ import {
 } from '../../redux/slice/usersSlice';
 import PredictionsPanel from './PredictionsPanel';
 import FreeComboPanel from './FreeComboPanel';
+import PaidComboPanel from './PaidComboPanel';
 
 const AdminPanel = () => {
   const dispatch = useDispatch();
@@ -166,6 +167,7 @@ const AdminPanel = () => {
         </table>
       </div>
       <PredictionsPanel />
+      <PaidComboPanel />
       <FreeComboPanel />
     </>
   );
