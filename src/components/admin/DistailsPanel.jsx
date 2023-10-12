@@ -87,7 +87,7 @@ const DetailsPanel = () => {
 
   return (
     <div className="admin-data">
-      <h2>Piad Combos</h2>
+      <h2>Head to Head</h2>
       <table>
         <thead>
           <tr>
@@ -244,12 +244,11 @@ const DetailsPanel = () => {
           value={newDetailsData.league}
           onChange={handleDetailsInputChange}
         />
-        <input
-          type="textarea"
+        <textarea
           name="text"
           placeholder="text"
-          value={newDetailsData.text}
           onChange={handleDetailsInputChange}
+          value={newDetailsData.text}
         />
         <button type="button" onClick={handleDetailsAdd}>Add Head to Head</button>
       </div>
