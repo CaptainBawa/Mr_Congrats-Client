@@ -17,9 +17,9 @@ export const fetchDetails = createAsyncThunk('details/fetchDetails', async (pred
   }
 });
 
-export const createDetail = createAsyncThunk('details/createDetail', async (detailData) => {
+export const createDetail = createAsyncThunk('details/createDetail', async (detailData, predictionId) => {
   try {
-    const response = await axios.post('http://localhost:3000/details', detailData, addTokenToHeaders());
+    const response = await axios.post(`http://localhost:3000/predictions/${predictionId}/details/`, detailData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to create a detail');
