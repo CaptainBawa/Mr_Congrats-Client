@@ -18,7 +18,7 @@ const App = () => (
     <Bookies />
     <Routes>
       <Route path="/" element={<PredictionsList />} />
-      <Route path="/details/:detailId" element={<DetailsList />} />
+      <Route path="/predictions/:predictionId/details" element={<DetailsList />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/order" element={<Order />} />

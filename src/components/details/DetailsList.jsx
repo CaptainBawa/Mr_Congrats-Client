@@ -1,15 +1,20 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { fetchDetails, selectDetails } from '../../redux/slice/detailsSlice';
 
 const DetailsList = () => {
   const dispatch = useDispatch();
   const details = useSelector(selectDetails);
+  const { predictionId } = useParams();
 
   useEffect(() => {
-    dispatch(fetchDetails());
-  }, [dispatch]);
+    dispatch(fetchDetails(predictionId));
+  }, [dispatch, predictionId]);
+
+  if (details.length === 0) {
+    return <div>No head to head for this match</div>;
+  }
 
   return (
     <div className="table-container">
