@@ -8,9 +8,9 @@ const initialState = {
   error: null,
 };
 
-export const fetchDetails = createAsyncThunk('details/fetchDetails', async () => {
+export const fetchDetails = createAsyncThunk('details/fetchDetails', async (predictionId) => {
   try {
-    const response = await axios.get('http://localhost:3000/details');
+    const response = await axios.get(`http://localhost:3000/predictions/${predictionId}/details`);
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch details');
