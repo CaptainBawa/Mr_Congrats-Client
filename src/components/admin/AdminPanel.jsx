@@ -12,6 +12,7 @@ import PredictionsPanel from './PredictionsPanel';
 import FreeComboPanel from './FreeComboPanel';
 import PaidComboPanel from './PaidComboPanel';
 import DetailsPanel from './DistailsPanel';
+import AdvertsPanel from './AdvertsPanel';
 
 const AdminPanel = () => {
   const dispatch = useDispatch();
@@ -171,6 +172,7 @@ const AdminPanel = () => {
       <FreeComboPanel />
       <PredictionsPanel />
       <DetailsPanel />
+      <AdvertsPanel />
     </>
   );
 };

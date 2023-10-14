@@ -26,25 +26,6 @@ export const createDetail = createAsyncThunk('details/createDetail', async (deta
   }
 });
 
-export const deleteDetail = createAsyncThunk('details/deleteDetail', async (detailId) => {
-  try {
-    await axios.delete(`http://localhost:3000/details/${detailId}`, addTokenToHeaders());
-    return detailId;
-  } catch (error) {
-    throw new Error('Failed to delete a detail');
-  }
-});
-
-export const updateDetail = createAsyncThunk('details/updateDetail', async (detailData) => {
-  try {
-    const { id, ...updatedData } = detailData;
-    const response = await axios.put(`http://localhost:3000/details/${id}`, updatedData, addTokenToHeaders());
-    return response.data;
-  } catch (error) {
-    throw new Error('Failed to update the detail');
-  }
-});
-
 const detailsSlice = createSlice({
   name: 'details',
   initialState,
@@ -67,23 +48,7 @@ const detailsSlice = createSlice({
       }))
       .addCase(createDetail.fulfilled, (state, action) => {
         state.details.push(action.payload);
-      })
-      .addCase(deleteDetail.fulfilled, (state, action) => ({
-        ...state,
-        details: state.details.filter((detail) => detail.id !== action.payload),
-      }))
-      .addCase(updateDetail.fulfilled, (state, action) => ({
-        ...state,
-        details: state.details.map((detail) => {
-          if (detail.id === action.payload.id) {
-            return {
-              ...detail,
-              ...action.payload,
-            };
-          }
-          return detail;
-        }),
-      }));
+      });
   },
 });
 
