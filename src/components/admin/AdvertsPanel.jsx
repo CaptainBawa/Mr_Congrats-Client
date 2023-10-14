@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createAdvert } from '../../redux/slice/advertsSlice';
+import { createAdvert, deleteAdvert } from '../../redux/slice/advertsSlice';
 
 const AdvertsPanel = () => {
   const dispatch = useDispatch();
@@ -14,6 +14,13 @@ const AdvertsPanel = () => {
     setNewAdvertsData({ ...newAdvertsData, [name]: value });
   };
 
+  const handleAdvertDelete = (id) => {
+    dispatch(deleteAdvert(id))
+      .catch((error) => {
+        throw new Error('Failed to delete advert', error);
+      });
+  };
+
   const handleAdvertsAdd = () => {
     dispatch(createAdvert({ advert: newAdvertsData }))
       .then(() => {
@@ -25,7 +32,12 @@ const AdvertsPanel = () => {
 
   return (
     <div>
-      {adverts.map((advert) => <img key={advert.id} src={advert.image} alt="ads banners" />)}
+      {adverts.map((advert) => (
+        <div key={advert.id}>
+          <img src={advert.image} alt="ads banners" />
+          <button id="btn-bg-red" type="button" onClick={() => handleAdvertDelete(advert.id)}>Delete</button>
+        </div>
+      ))}
       <div>
         <h2>Add Advert</h2>
         <input
