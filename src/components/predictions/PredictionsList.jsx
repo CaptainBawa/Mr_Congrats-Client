@@ -63,7 +63,11 @@ const PredictionsList = () => {
               </div>
               <div className="league-tip">
                 <h3>{prediction.league}</h3>
-                <h3>{prediction.tip}</h3>
+                <h3>
+                  Tip:
+                  {' '}
+                  {prediction.tip}
+                </h3>
               </div>
               <div className="team">
                 <img src={prediction.away_team_logo} alt="away team logo" />
