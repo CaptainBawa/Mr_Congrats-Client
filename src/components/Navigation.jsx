@@ -69,11 +69,9 @@ const Navigation = () => {
           X
         </button>
         <ul>
-          <li className="nav-list-item"><a href="#skill">Home</a></li>
+          <li className="nav-list-item"><a href="/">Home</a></li>
           <li className="nav-list-item"><a href="#work">About Us</a></li>
-          <li className="nav-list-item"><a href="#projects">Login</a></li>
-          <li className="nav-list-item"><a href="#blog">Sign Up</a></li>
-          <li className="nav-list-item"><a href="#contact">Contact Us</a></li>
+          <li className="nav-list-item"><a href="/order">VIP Tips</a></li>
           <li className="nav-list-item">{userRole === 'admin' && <Link to="/prince">Admin Panel</Link>}</li>
         </ul>
       </nav>
