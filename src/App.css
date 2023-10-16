@@ -90,7 +90,7 @@ header li a {
 }
 
 .bookies-container {
-  width: 97%;
+  width: 98%;
   margin: 3% 1% 5% 1%;
 }
 
@@ -108,6 +108,7 @@ footer ul li {
   display: flex;
   flex-wrap: wrap;
   gap: 2%;
+  margin: 0 auto;
 }
 
 .order-card a,
@@ -147,6 +148,10 @@ footer ul li {
 
 .table-container {
   margin: 3% 1% 5% 1%;
+}
+
+.table-details {
+  padding-bottom: 35%;
 }
 
 .table-container h2,
@@ -219,6 +224,7 @@ footer ul li {
   flex-direction: column;
   align-items: center;
   width: 35%;
+  gap: 1rem;
 }
 
 .team img,
@@ -231,6 +237,7 @@ footer ul li {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 }
 
 .datetime-result {
@@ -364,7 +371,7 @@ footer ul li a i {
 }
 
 .note-container {
-  width: 97%;
+  width: 98%;
   margin: 0 auto;
 }
 
