@@ -17,7 +17,7 @@ const DetailsList = () => {
   }
 
   return (
-    <div className="table-container">
+    <div className="table-container table-details">
       <Link to="/">&larr;</Link>
       <table className="responsive-table">
         <thead>
