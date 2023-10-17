@@ -572,4 +572,8 @@ select {
     padding: 0;
   }
 
+  .slide {
+    height: 70vh;
+  }
+
 }
