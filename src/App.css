@@ -533,3 +533,47 @@ select {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
+
+
+@media only screen and (min-width: 768px){
+  .mobile-toggle,
+  nav button {
+    display: none;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: 97%;
+    height: 10vh;
+  }
+
+  header ul {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  header .nav-menu {
+    width: 50%;
+    height: auto;
+    display: flex;
+    backdrop-filter: none;
+    background-color: transparent;
+    top: 0;
+  }
+
+  header img {
+    width: 8%;
+  }
+
+  .mobile-nav {
+    width: 50%;
+    padding: 0;
+  }
+
+  .slide {
+    height: 70vh;
+  }
+
+}
