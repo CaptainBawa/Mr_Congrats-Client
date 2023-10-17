@@ -533,3 +533,39 @@ select {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
+
+
+@media only screen and (min-width: 768px){
+  .mobile-toggle,
+  nav button {
+    display: none;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    height: 17vh;
+  }
+
+  header ul {
+    flex-direction: row;
+  }
+
+  header .nav-menu {
+    width: 50%;
+    height: auto;
+    display: block;
+    backdrop-filter: none;
+    background-color: transparent;
+    top: 0;
+  }
+
+  header img {
+    width: 15%;
+  }
+
+  .mobile-nav {
+    width: 50%;
+  }
+
+}
