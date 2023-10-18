@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Footer = () => (
-  <footer>
+  <section>
     <ul>
       <li>
         <a href="tel:+233551740326">
@@ -29,7 +29,7 @@ const Footer = () => (
         </a>
       </li>
     </ul>
-  </footer>
+  </section>
 );
 
 export default Footer;
