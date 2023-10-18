@@ -94,13 +94,13 @@ header li a {
   margin: 3% 1% 5% 1%;
 }
 
-footer ul {
+section ul {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-footer ul li {
+section ul li {
   list-style: none;
 }
 
@@ -291,7 +291,7 @@ footer ul li {
   right: 10px;
 }
 
-footer {
+section {
   width: 97%;
   height: 13vh;
   background-color: #000101;
@@ -307,7 +307,7 @@ footer {
   right: 0;
 }
 
-footer ul li a i {
+section ul li a i {
   color: #818081;
   font-size: 2rem;
 }
@@ -534,8 +534,7 @@ select {
   border-radius: 3px;
 }
 
-
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 768px) {
   .mobile-toggle,
   nav button {
     display: none;
@@ -576,4 +575,76 @@ select {
     height: 70vh;
   }
 
+  .bookies-container {
+    border: 2px solid #fff;
+    width: 65%;
+    padding: 5% 1% 1% 1%;
+    border-radius: 2%;
+  }
+
+  .predictions-main {
+    width: 65%;
+  }
+
+  .note-container {
+    margin-left: 1%;
+  }
+
+  .responsive-table {
+    width: 100%;
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    font-size: 1.3rem;
+    padding: 1%;
+  }
+
+  .note p,
+  .note button,
+  .not-subscriber p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+
+  .table-container h2,
+  .free-singles-container h2,
+  .bookies-container h2,
+  .note-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .free-singles-container {
+    margin-left: 1%;
+  }
+
+  .free-inner-div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+  }
+
+  .free-singles {
+    width: 47%;
+  }
+
+  .free-singles .h-h {
+    position: relative;
+    top: 1%;
+    font-size: 1.5rem;
+  }
+
+  section {
+    height: 50vh;
+    width: 10%;
+    top: 32%;
+    left: 89%;
+    margin: 0;
+  }
+
+  section ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
 }
