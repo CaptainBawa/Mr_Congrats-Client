@@ -576,4 +576,40 @@ select {
     height: 70vh;
   }
 
+  .bookies-container {
+    border: 2px solid #fff;
+    width: 65%;
+    padding: 5% 1% 1% 1%;
+    border-radius: 2%;
+  }
+
+  .note-container {
+    width: 65%;
+    margin-left: 1%;
+  }
+
+  .responsive-table {
+    width: 65%;
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    font-size: 1.3rem;
+    padding: 1%;
+  }
+
+  .note p,
+.note button,
+.not-subscriber p {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+  .table-container h2,
+.free-singles-container h2,
+.bookies-container h2,
+.note-container h2 {
+  font-size: 1.3rem;
+}
+
 }
