@@ -94,13 +94,13 @@ header li a {
   margin: 3% 1% 5% 1%;
 }
 
-footer ul {
+section ul {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-footer ul li {
+section ul li {
   list-style: none;
 }
 
@@ -291,7 +291,7 @@ footer ul li {
   right: 10px;
 }
 
-footer {
+section {
   width: 97%;
   height: 13vh;
   background-color: #000101;
@@ -307,7 +307,7 @@ footer {
   right: 0;
 }
 
-footer ul li a i {
+section ul li a i {
   color: #818081;
   font-size: 2rem;
 }
@@ -582,13 +582,16 @@ select {
     border-radius: 2%;
   }
 
-  .note-container {
+  .predictions-main {
     width: 65%;
+  }
+
+  .note-container {
     margin-left: 1%;
   }
 
   .responsive-table {
-    width: 65%;
+    width: 100%;
   }
 
   .responsive-table th,
@@ -612,7 +615,6 @@ select {
   }
 
   .free-singles-container {
-    width: 65%;
     margin-left: 1%;
   }
 
@@ -629,5 +631,20 @@ select {
   .free-singles .h-h {
     position: relative;
     top: 1%;
+    font-size: 1.5rem;
+  }
+
+  section {
+    height: 50vh;
+    width: 10%;
+    top: 32%;
+    left: 89%;
+    margin: 0;
+  }
+
+  section ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
   }
 }
