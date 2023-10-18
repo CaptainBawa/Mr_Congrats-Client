@@ -534,8 +534,7 @@ select {
   border-radius: 3px;
 }
 
-
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 768px) {
   .mobile-toggle,
   nav button {
     display: none;
@@ -599,17 +598,36 @@ select {
   }
 
   .note p,
-.note button,
-.not-subscriber p {
-  font-size: 1.4rem;
-  line-height: 1.5;
-}
+  .note button,
+  .not-subscriber p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
 
   .table-container h2,
-.free-singles-container h2,
-.bookies-container h2,
-.note-container h2 {
-  font-size: 1.3rem;
-}
+  .free-singles-container h2,
+  .bookies-container h2,
+  .note-container h2 {
+    font-size: 1.3rem;
+  }
 
+  .free-singles-container {
+    width: 65%;
+    margin-left: 1%;
+  }
+
+  .free-inner-div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+  }
+
+  .free-singles {
+    width: 47%;
+  }
+
+  .free-singles .h-h {
+    position: relative;
+    top: 1%;
+  }
 }
