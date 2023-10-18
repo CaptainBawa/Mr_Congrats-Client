@@ -50,7 +50,7 @@ const PredictionsList = () => {
   }
 
   return (
-    <div>
+    <div className="predictions-main">
       {content}
       <div className="free-singles-container">
         <h2>Free singles</h2>
