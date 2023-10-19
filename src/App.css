@@ -555,8 +555,7 @@ select {
 
 .side-ads div {
   display: flex;
-  gap: 1rem;
-  margin-left: 2%;
+  margin-left: 3%;
 }
 
 .link-type {
@@ -598,7 +597,7 @@ select {
 }
 
 .side-ads div img {
-  width: 25%;
+  width: 30%;
   height: auto;
 }
 

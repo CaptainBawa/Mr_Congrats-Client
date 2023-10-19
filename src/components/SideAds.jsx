@@ -32,7 +32,7 @@ const SideAds = () => {
             <img src={ad.image} alt={ad.name} />
             <div className="link-type">
               <a target="_blank" rel="noreferrer" href={ad.name_link}>{ad.name}</a>
-              <h2>{ad.type}</h2>
+              <h3>{ad.type}</h3>
             </div>
           </div>
           <button type="button" className="ads-register">
