@@ -616,6 +616,7 @@ select {
 
   .free-singles-container {
     margin-left: 1%;
+    padding-bottom: 0;
   }
 
   .free-inner-div {
