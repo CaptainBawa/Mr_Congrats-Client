@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = () => (
+const Section = () => (
   <section>
     <ul>
       <li>
@@ -32,4 +32,4 @@ const Footer = () => (
   </section>
 );
 
-export default Footer;
+export default Section;

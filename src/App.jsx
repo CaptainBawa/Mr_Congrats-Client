@@ -5,11 +5,12 @@ import AdvertsList from './components/adverts/AdvertsList';
 import DetailsList from './components/details/DetailsList';
 import Navigation from './components/Navigation';
 import Bookies from './components/Bookies';
-import Footer from './components/Footer';
+import Section from './components/Section';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import Order from './components/Order';
 import AdminPanel from './components/admin/AdminPanel';
+import SideAds from './components/SideAds';
 
 const App = () => (
   <BrowserRouter>
@@ -24,7 +25,8 @@ const App = () => (
       <Route path="/order" element={<Order />} />
       <Route path="/prince" element={<AdminPanel />} />
     </Routes>
-    <Footer />
+    <SideAds />
+    <Section />
   </BrowserRouter>
 );
 
