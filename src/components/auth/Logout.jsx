@@ -35,7 +35,7 @@ const Logout = () => {
   };
 
   return (
-    <div>
+    <div className="logout-container">
       {error && <p className="error">{error}</p>}
       {successMessage && <p className="success">{successMessage}</p>}
       <button className="logout-btn" type="button" onClick={handleLogout}>Logout</button>

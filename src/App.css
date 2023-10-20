@@ -139,6 +139,24 @@ section ul li {
   margin-top: 2%;
 }
 
+.link-type a,
+.link-type h2,
+.pro-bonus-links a {
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.pro-bonus-links a {
+  font-size: 1.2rem;
+}
+
+.ads-register a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff;
+}
+
 .bookies-container ul li a {
   color: #fff;
   font-size: 1.1rem;
@@ -148,10 +166,6 @@ section ul li {
 
 .table-container {
   margin: 3% 1% 5% 1%;
-}
-
-.table-details {
-  padding-bottom: 35%;
 }
 
 .table-container h2,
@@ -412,7 +426,7 @@ section ul li a i {
   background-color: #fff;
   border-radius: 5%;
   padding: 3%;
-  margin: 0 auto;
+  margin: 0 auto 5% auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -427,7 +441,6 @@ section ul li a i {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 7rem;
 }
 
 .payment-options div {
@@ -563,37 +576,19 @@ select {
   flex-direction: column;
 }
 
-.link-type a,
-.link-type h2,
-.pro-bonus-links a {
-  font-size: 1.5rem;
-  color: #000;
-}
-
 .pro-bonus-links {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
 }
 
-.pro-bonus-links a {
-  font-size: 1.2rem;
-}
-
 .ads-register {
   width: 95%;
-  height: 10vh;
+  height: 7vh;
   background-color: #fe4a00;
   border: none;
   border-radius: 5%;
   margin: 0 auto;
-}
-
-.ads-register a {
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: #fff;
 }
 
 .side-ads div img {
@@ -661,6 +656,10 @@ select {
     width: 100%;
   }
 
+  .table-details {
+    width: 65%;
+  }
+
   .responsive-table th,
   .responsive-table td {
     font-size: 1.3rem;
@@ -714,5 +713,36 @@ select {
     flex-direction: column;
     align-items: center;
     gap: 3rem;
+  }
+
+  .side-ads-container {
+    width: 24%;
+    position: absolute;
+    top: 87%;
+    left: 67%;
+    padding: 0;
+  }
+
+  .order-card {
+    width: 40%;
+    margin-left: 3%;
+    margin-top: -3%;
+  }
+
+  .order-card h1,
+  .order-card p,
+  .payment-container p,
+  .payment-options div h3 {
+    font-size: 1.3rem;
+  }
+
+  .logout-container {
+    position: relative;
+    right: 30%;
+  }
+
+  .logout-btn {
+    font-size: 1.7rem;
+    cursor: pointer;
   }
 }
