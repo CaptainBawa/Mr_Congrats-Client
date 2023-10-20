@@ -22,6 +22,26 @@ const SideAds = () => {
       promo: 'https://supabets.com.gh/page/terms_cond',
       bonus: 'https://supabets.com.gh/page/terms_cond',
     },
+    {
+      id: 3,
+      image: 'https://betsites.ng/img/supabet-sports-betting-site.png',
+      name: 'Supabet',
+      name_link: 'https://supabets.com.gh/',
+      type: 'Welcome bonus',
+      button: 'https://supabets.com.gh/page/terms_cond',
+      promo: 'https://supabets.com.gh/page/terms_cond',
+      bonus: 'https://supabets.com.gh/page/terms_cond',
+    },
+    {
+      id: 4,
+      image: 'https://betsites.ng/img/supabet-sports-betting-site.png',
+      name: 'Supabet',
+      name_link: 'https://supabets.com.gh/',
+      type: 'Welcome bonus',
+      button: 'https://supabets.com.gh/page/terms_cond',
+      promo: 'https://supabets.com.gh/page/terms_cond',
+      bonus: 'https://supabets.com.gh/page/terms_cond',
+    },
   ];
 
   return (
