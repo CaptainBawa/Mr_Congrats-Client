@@ -735,4 +735,14 @@ select {
   .payment-options div h3 {
     font-size: 1.3rem;
   }
+
+  .logout-container {
+    position: relative;
+    right: 30%;
+  }
+
+  .logout-btn {
+    font-size: 1.7rem;
+    cursor: pointer;
+  }
 }
