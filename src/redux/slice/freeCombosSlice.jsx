@@ -10,7 +10,7 @@ const initialState = {
 
 export const fetchFreeCombos = createAsyncThunk('freeCombos/fetchFreeCombos', async () => {
   try {
-    const response = await axios.get('http://localhost:3000/free_combos');
+    const response = await axios.get('https://mr-congrats.fly.dev/free_combos');
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch free combos');
@@ -19,7 +19,7 @@ export const fetchFreeCombos = createAsyncThunk('freeCombos/fetchFreeCombos', as
 
 export const createFreeCombo = createAsyncThunk('freeCombos/createFreeCombo', async (freeComboData) => {
   try {
-    const response = await axios.post('http://localhost:3000/free_combos', freeComboData, addTokenToHeaders());
+    const response = await axios.post('https://mr-congrats.fly.dev/free_combos', freeComboData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to create a free combo');
@@ -28,7 +28,7 @@ export const createFreeCombo = createAsyncThunk('freeCombos/createFreeCombo', as
 
 export const deleteFreeCombo = createAsyncThunk('freeCombos/deleteFreeCombo', async (freeComboId) => {
   try {
-    await axios.delete(`http://localhost:3000/free_combos/${freeComboId}`, addTokenToHeaders());
+    await axios.delete(`https://mr-congrats.fly.dev/free_combos/${freeComboId}`, addTokenToHeaders());
     return freeComboId;
   } catch (error) {
     throw new Error('Failed to delete a free combo');
@@ -38,7 +38,7 @@ export const deleteFreeCombo = createAsyncThunk('freeCombos/deleteFreeCombo', as
 export const updateFreeCombo = createAsyncThunk('freeCombos/updateFreeCombo', async (freeComboData) => {
   try {
     const { id, ...updatedData } = freeComboData;
-    const response = await axios.put(`http://localhost:3000/free_combos/${id}`, updatedData, addTokenToHeaders());
+    const response = await axios.put(`https://mr-congrats.fly.dev/free_combos/${id}`, updatedData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to update the free combo');

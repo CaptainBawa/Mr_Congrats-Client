@@ -10,7 +10,7 @@ const initialState = {
 
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
   try {
-    const response = await axios.get('http://localhost:3000/current_user');
+    const response = await axios.get('https://mr-congrats.fly.dev/current_user');
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch users');
@@ -19,7 +19,7 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
 
 export const createUser = createAsyncThunk('users/createUser', async (userData) => {
   try {
-    const response = await axios.post('http://localhost:3000/current_user', userData, addTokenToHeaders());
+    const response = await axios.post('https://mr-congrats.fly.dev/current_user', userData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to create a user');
@@ -28,7 +28,7 @@ export const createUser = createAsyncThunk('users/createUser', async (userData) 
 
 export const deleteUser = createAsyncThunk('users/deleteUser', async (userId) => {
   try {
-    await axios.delete(`http://localhost:3000/current_user/${userId}`, addTokenToHeaders());
+    await axios.delete(`https://mr-congrats.fly.dev/current_user/${userId}`, addTokenToHeaders());
     return userId;
   } catch (error) {
     throw new Error('Failed to delete a user');
@@ -38,7 +38,7 @@ export const deleteUser = createAsyncThunk('users/deleteUser', async (userId) =>
 export const updateUser = createAsyncThunk('users/updateUser', async (user) => {
   try {
     const { id, ...updatedData } = user;
-    const response = await axios.put(`http://localhost:3000/current_user/${id}`, updatedData, addTokenToHeaders());
+    const response = await axios.put(`https://mr-congrats.fly.dev/current_user/${id}`, updatedData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to update the user');

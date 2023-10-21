@@ -10,7 +10,7 @@ const initialState = {
 
 export const fetchPredictions = createAsyncThunk('predictions/fetchPredictions', async () => {
   try {
-    const response = await axios.get('http://localhost:3000/predictions');
+    const response = await axios.get('https://mr-congrats.fly.dev/predictions');
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch predictions');
@@ -19,7 +19,7 @@ export const fetchPredictions = createAsyncThunk('predictions/fetchPredictions',
 
 export const createPrediction = createAsyncThunk('predictions/createPrediction', async (predictionData) => {
   try {
-    const response = await axios.post('http://localhost:3000/predictions', predictionData, addTokenToHeaders());
+    const response = await axios.post('https://mr-congrats.fly.dev/predictions', predictionData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to create a prediction');
@@ -28,7 +28,7 @@ export const createPrediction = createAsyncThunk('predictions/createPrediction',
 
 export const deletePrediction = createAsyncThunk('predictions/deletePrediction', async (predictionId) => {
   try {
-    await axios.delete(`http://localhost:3000/predictions/${predictionId}`, addTokenToHeaders());
+    await axios.delete(`https://mr-congrats.fly.dev/predictions/${predictionId}`, addTokenToHeaders());
     return predictionId;
   } catch (error) {
     throw new Error('Failed to delete a prediction');
@@ -38,7 +38,7 @@ export const deletePrediction = createAsyncThunk('predictions/deletePrediction',
 export const updatePrediction = createAsyncThunk('predictions/updatePrediction', async (prediction) => {
   try {
     const { id, ...updatedData } = prediction;
-    const response = await axios.put(`http://localhost:3000/predictions/${id}`, updatedData, addTokenToHeaders());
+    const response = await axios.put(`https://mr-congrats.fly.dev/predictions/${id}`, updatedData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to update the prediction');

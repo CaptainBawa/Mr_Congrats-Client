@@ -10,7 +10,7 @@ const initialState = {
 
 export const fetchDetails = createAsyncThunk('details/fetchDetails', async (predictionId) => {
   try {
-    const response = await axios.get(`http://localhost:3000/predictions/${predictionId}/details`);
+    const response = await axios.get(`https://mr-congrats.fly.dev/predictions/${predictionId}/details`);
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch details');
@@ -19,7 +19,7 @@ export const fetchDetails = createAsyncThunk('details/fetchDetails', async (pred
 
 export const createDetail = createAsyncThunk('details/createDetail', async (detailData, predictionId) => {
   try {
-    const response = await axios.post(`http://localhost:3000/predictions/${predictionId}/details/`, detailData, addTokenToHeaders());
+    const response = await axios.post(`https://mr-congrats.fly.dev/predictions/${predictionId}/details/`, detailData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to create a detail');

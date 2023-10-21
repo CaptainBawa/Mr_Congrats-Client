@@ -10,7 +10,7 @@ const initialState = {
 
 export const fetchPaidCombos = createAsyncThunk('paidCombos/fetchPaidCombos', async () => {
   try {
-    const response = await axios.get('http://localhost:3000/paid_combos');
+    const response = await axios.get('https://mr-congrats.fly.dev/paid_combos');
     return response.data;
   } catch (error) {
     throw new Error('Failed to fetch paid combos');
@@ -19,7 +19,7 @@ export const fetchPaidCombos = createAsyncThunk('paidCombos/fetchPaidCombos', as
 
 export const createPaidCombo = createAsyncThunk('paidCombos/createPaidCombo', async (paidComboData) => {
   try {
-    const response = await axios.post('http://localhost:3000/paid_combos', paidComboData, addTokenToHeaders());
+    const response = await axios.post('https://mr-congrats.fly.dev/paid_combos', paidComboData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to create a paid combo');
@@ -28,7 +28,7 @@ export const createPaidCombo = createAsyncThunk('paidCombos/createPaidCombo', as
 
 export const deletePaidCombo = createAsyncThunk('paidCombos/deletePaidCombo', async (paidComboId) => {
   try {
-    await axios.delete(`http://localhost:3000/paid_combos/${paidComboId}`, addTokenToHeaders());
+    await axios.delete(`https://mr-congrats.fly.dev/paid_combos/${paidComboId}`, addTokenToHeaders());
     return paidComboId;
   } catch (error) {
     throw new Error('Failed to delete a paid combo');
@@ -38,7 +38,7 @@ export const deletePaidCombo = createAsyncThunk('paidCombos/deletePaidCombo', as
 export const updatePaidCombo = createAsyncThunk('paidCombos/updatePaidCombo', async (paidComboData) => {
   try {
     const { id, ...updatedData } = paidComboData;
-    const response = await axios.put(`http://localhost:3000/paid_combos/${id}`, updatedData, addTokenToHeaders());
+    const response = await axios.put(`https://mr-congrats.fly.dev/paid_combos/${id}`, updatedData, addTokenToHeaders());
     return response.data;
   } catch (error) {
     throw new Error('Failed to update the paid combo');

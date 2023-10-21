@@ -23,7 +23,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/login', { user: { email, password } });
+      const response = await axios.post('https://mr-congrats.fly.dev/login', { user: { email, password } });
       const user = response.data;
       dispatch(login(user));
       sessionStorage.setItem('authToken', user.jwt_token);

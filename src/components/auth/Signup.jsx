@@ -13,7 +13,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:3000/signup', {
+      await axios.post('https://mr-congrats.fly.dev/signup', {
         user: {
           name, email, password,
         },

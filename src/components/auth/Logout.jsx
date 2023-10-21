@@ -22,7 +22,7 @@ const Logout = () => {
         Authorization: `Bearer ${token}`,
       };
 
-      await axios.delete('http://localhost:3000/logout', { headers });
+      await axios.delete('https://mr-congrats.fly.dev/logout', { headers });
       dispatch(logout());
       setTimeout(() => {
         setSuccessMessage('Logout successful');
